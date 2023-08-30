@@ -1,2 +1,0 @@
-.
--DCATKIN_DEVEL_PREFIX=/home/a/learningmpc/devel -DCMAKE_INSTALL_PREFIX=/home/a/learningmpc/install -G Unix Makefiles
