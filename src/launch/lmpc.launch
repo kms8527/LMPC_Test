@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Load all parameters -->
+  <rosparam command="load" file="$(find learningmpc)/Lmpc_params.yaml"/>
+  <param name="waypoint_file" value ="$(find learningmpc)/data/centerline_waypoints.csv"/>
+  <param name="init_data_file" value ="$(find learningmpc)/data/initial_safe_set.csv"/>
+  <!-- Define an argument with a default value -->
+  <arg name="obj" default="0"/>
+
+  <!-- Set the parameter using the argument value -->
+  <param name="obj" value="$(arg obj)"/>
+
+  <!-- Launch the learning MPC -->
+  <node pkg="learningmpc" name="LMPC" type="LMPC" output="screen">
+  </node>
+
+</launch>

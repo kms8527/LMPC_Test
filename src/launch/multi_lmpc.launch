@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- First instance of the node with its own parameters -->
+  <rosparam command="load" file="$(find learningmpc)/Lmpc_params.yaml"/>
+    <param name="waypoint_file" value ="$(find learningmpc)/data/centerline_waypoints.csv"/>
+    <param name="init_data_file" value ="$(find learningmpc)/data/initial_safe_set.csv"/>
+    <param name="obj" value="0"/>
+    <node pkg="learningmpc" type="LMPC" name="LMPC0"/>
+
+  <!-- Second instance of the node with different parameters -->
+  <rosparam command="load" file="$(find learningmpc)/Lmpc_params.yaml"/>
+    <param name="waypoint_file" value ="$(find learningmpc)/data/centerline_waypoints.csv"/>
+    <param name="init_data_file" value ="$(find learningmpc)/data/initial_safe_set.csv"/>
+    <param name="obj" value="1"/>
+    <node pkg="learningmpc" type="LMPC" name="LMPC1"/>
+
+  <!-- Rest of your launch file... -->
+</launch>
